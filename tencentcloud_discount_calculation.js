@@ -105,7 +105,20 @@
     // 初始化函数，页面加载完成后启动观察者
     function init() {
         console.log('页面已加载');
-        observeTableChanges();
+        
+        // 查询加载状态节点并存储在变量中
+        const targetSpan = document.querySelector('#expense-voucher main div div.app-expense-layout__content-body div div.app-expense-card.expense-card-verify div div div.expense-grid-operation div.app-expense-tabs div:nth-child(3)  div.app-expense-table__body table tbody tr td  span  span');
+        if (!targetSpan) {
+            console.error('找不到加载状态节点');
+            return;
+        }
+        if (targetSpan.textContent.includes('已关闭')) {
+            console.log('状态已关闭:', targetSpan.textContent);
+            observeTableChanges(); // 执行observeTableChanges函数
+        } else {
+            console.log('状态未关闭，等待中...');
+            setTimeout(init, 1000); // 1秒后再次检查
+        }
     }
 
     // 监听页面加载完成事件
