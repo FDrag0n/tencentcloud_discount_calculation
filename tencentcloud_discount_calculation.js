@@ -6,6 +6,7 @@
 // @author       fdrag0n
 // @match        https://console.cloud.tencent.com/expense/voucher
 // @grant        none
+// @license      GPL3
 // ==/UserScript==
 
 (function() {
