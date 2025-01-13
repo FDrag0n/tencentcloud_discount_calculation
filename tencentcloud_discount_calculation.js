@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         腾讯云代金券优惠力度计算
 // @namespace    http://tampermonkey.net/
-// @version      1.0
+// @version      1.1
 // @description  在hunyuan大模型辅助下完成
 // @author       fdrag0n
 // @match        https://console.cloud.tencent.com/expense/voucher
