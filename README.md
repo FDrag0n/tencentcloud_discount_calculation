@@ -9,5 +9,8 @@
 
 使用效果
 <img width="965" alt="image" src="https://github.com/user-attachments/assets/78861991-9e50-4da5-9da6-4d80187f42b9">
+1.1新增手动计算折扣键(原方法监听事件没能监听到页面完全加载)
+<img width="183" alt="image" src="https://github.com/user-attachments/assets/e2bee071-74cf-40f9-9d68-45d48a794d9a" />
+
 
 欢迎各位大佬共建
