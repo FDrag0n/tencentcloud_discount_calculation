@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         腾讯云代金券优惠力度计算
 // @namespace    http://tampermonkey.net/
-// @version      1.1
+// @version      1.2
 // @description  在hunyuan大模型辅助下完成
 // @author       fdrag0n
 // @match        https://console.cloud.tencent.com/expense/voucher
@@ -63,7 +63,7 @@
             // 检查子节点数量，避免插入到错误的位置
             const targetElement = row.querySelector('td:nth-child(4) div p:nth-child(1) span:nth-child(1)');
             if (targetElement && targetElement.nextSibling && targetElement.nextSibling.nodeType === Node.ELEMENT_NODE) {
-                console.log(`由于存在多个子节点，跳过第 ${index + 1} 行的插入`);
+                // console.log(`由于存在多个子节点，跳过第 ${index + 1} 行的插入`);
                 return;
             }
 
@@ -100,18 +100,18 @@
         const rows = targetNode.querySelectorAll('tr');
         processRows(rows);
         // 创建并启动观察者
-        const observer = new MutationObserver((mutationsList) => {
-            console.log('检测到变化');
-            for (let mutation of mutationsList) {
-                if (mutation.type === 'childList') {
-                    // 每次表格变化时重新处理所有行
-                    const rows = targetNode.querySelectorAll('tr');
-                    processRows(rows);
-                }
-            }
-        });
+        // const observer = new MutationObserver((mutationsList) => {
+        //     console.log('检测到变化');
+        //     for (let mutation of mutationsList) {
+        //         if (mutation.type === 'childList') {
+        //             // 每次表格变化时重新处理所有行
+        //             const rows = targetNode.querySelectorAll('tr');
+        //             processRows(rows);
+        //         }
+        //     }
+        // });
 
-        observer.observe(targetNode, config);
+        // observer.observe(targetNode, config);
     }
 
     // 初始化函数，页面加载完成后启动观察者
@@ -136,9 +136,9 @@
     }
 
     // 监听页面加载完成事件
-    window.addEventListener('load', init);
+    // window.addEventListener('load', init);
     // 监听DOM内容加载完成事件
-    document.addEventListener('DOMContentLoaded', init);
+    // document.addEventListener('DOMContentLoaded', init);
 
     // 创建按钮元素
     const btn = document.createElement('button');
